@@ -1,0 +1,28 @@
+{
+  "name": "atom-github-notifications",
+  "main": "./lib/atom-github-notifications",
+  "version": "0.0.0",
+  "description": "Display and dismiss your GitHub notifications from inside Atom",
+  "keywords": [
+    "atom",
+    "github",
+    "notifications"
+  ],
+  "activationCommands": {
+    "atom-workspace": "atom-github-notifications:toggle"
+  },
+  "repository": "https://github.com/cbargren/atom-github-notifications",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "github-xhr": "^0.3.0",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}
