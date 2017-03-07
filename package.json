@@ -8,9 +8,6 @@
     "github",
     "notifications"
   ],
-  "activationCommands": {
-    "atom-workspace": "atom-github-notifications:fetch"
-  },
   "repository": "https://github.com/cbargren/atom-github-notifications",
   "license": "MIT",
   "engines": {
