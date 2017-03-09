@@ -252,12 +252,13 @@ function fetch() {
       return;
     }
 
-    atom.notifications.addWarning('GitHub Notifications', {
+    var warning = atom.notifications.addWarning('GitHub Notifications', {
       description: 'You need to add a `Personal Access Token` to get notifications from GitHub',
       buttons: [{
         text: 'Go add one',
         onDidClick: function onDidClick() {
           atom.workspace.open('atom://config/packages/atom-github-notifications');
+          warning.dismiss();
         }
       }],
       dismissable: true
