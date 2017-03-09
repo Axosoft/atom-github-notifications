@@ -2,7 +2,7 @@
 
 Display your GitHub notifications in Atom!
 
-![Screenshot]()
+![Screenshot](resources/screenshot1.png)
 
 ## Setup
 
