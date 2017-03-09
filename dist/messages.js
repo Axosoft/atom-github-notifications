@@ -26,3 +26,10 @@ var ResetState = exports.ResetState = function ResetState() {
     type: RESET_STATE
   };
 };
+
+var TOKEN_NOTIFICATION_SHOWN = exports.TOKEN_NOTIFICATION_SHOWN = 'TokenNotificationShown';
+var TokenNotificationShown = exports.TokenNotificationShown = function TokenNotificationShown() {
+  return {
+    type: TOKEN_NOTIFICATION_SHOWN
+  };
+};

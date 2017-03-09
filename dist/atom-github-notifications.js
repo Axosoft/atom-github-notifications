@@ -54,6 +54,7 @@ var github = new _githubXhr2.default({
 (0, _bluebird.promisifyAll)(github.repos);
 
 var initialState = {
+  hasPromptedForToken: false,
   lastCheckTime: 0,
   notifications: []
 };
@@ -132,9 +133,9 @@ function showNotification(_ref) {
   notification.onDidDismiss(onDismiss);
 }
 
-function reducer(initialState, deserializedState) {
+function reducer(init, deserializedState) {
   return function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _extends({}, initialState, deserializedState);
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _extends({}, init, deserializedState);
     var message = arguments[1];
 
     switch (message.type) {
@@ -154,7 +155,11 @@ function reducer(initialState, deserializedState) {
           }, state.notifications)
         });
       case _messages.RESET_STATE:
-        return initialState;
+        return init;
+      case _messages.TOKEN_NOTIFICATION_SHOWN:
+        return _extends({}, state, {
+          hasPromptedForToken: true
+        });
       default:
         return state;
     }
@@ -221,7 +226,7 @@ function deactivate() {
 }
 
 function serialize() {
-  return store.getState();
+  return R.dissoc('hasPromptedForToken', store.getState());
 }
 
 function getFetchForCommentType(commentType) {
@@ -240,6 +245,24 @@ function getFetchForCommentType(commentType) {
 function fetch() {
   var token = atom.config.get('atom-github-notifications.personalAccessToken');
   if (!token) {
+    var _store$getState3 = store.getState(),
+        hasPromptedForToken = _store$getState3.hasPromptedForToken;
+
+    if (hasPromptedForToken) {
+      return;
+    }
+
+    atom.notifications.addWarning('GitHub Notifications', {
+      description: 'You need to add a `Personal Access Token` to get notifications from GitHub',
+      buttons: [{
+        text: 'Go add one',
+        onDidClick: function onDidClick() {
+          atom.workspace.open('atom://config/packages/atom-github-notifications');
+        }
+      }],
+      dismissable: true
+    });
+    store.dispatch((0, _messages.TokenNotificationShown)());
     return;
   }
 
@@ -259,7 +282,6 @@ function fetch() {
 
     return Promise.all(R.map(function (notification) {
       var _extractNotificationS = extractNotificationSubjectData(notification),
-          type = _extractNotificationS.type,
           commentId = _extractNotificationS.commentId,
           commentType = _extractNotificationS.commentType,
           subjectId = _extractNotificationS.subjectId,

@@ -31,6 +31,7 @@
   "scripts": {
     "compile": "babel lib -d dist",
     "publishMinor": "npm run compile && apm publish minor",
-    "publishPatch": "npm run compile && apm publish patch"
+    "publishPatch": "npm run compile && apm publish patch",
+    "watch": "babel lib -d dist -w"
   }
 }
