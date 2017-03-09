@@ -2,17 +2,17 @@
 
 Display your GitHub notifications in Atom!
 
-![Screenshot](resources/screenshot1.png)
+![Screenshot](https://raw.github.com/Axosoft/atom-github-notifications/master/resources/screenshot1.png)
 
 ## Setup
 
 You must configure your GitHub personal access token to receive notifications. You can generate this token by following the provided link.
 
-![Screenshot of personal access token field](resources/access-token-setting.png)
+![Screenshot of personal access token field](https://raw.github.com/Axosoft/atom-github-notifications/master/resources/access-token-setting.png)
 
 ---
 
 Built using
-![GitKraken](resources/gk-logo.png)
+![GitKraken](https://raw.github.com/Axosoft/atom-github-notifications/master/resources/gk-logo.png)
 by
-![Axosoft](resources/axosoft-logo.png)
+![Axosoft](https://raw.github.com/Axosoft/atom-github-notifications/master/resources/axosoft-logo.png)
