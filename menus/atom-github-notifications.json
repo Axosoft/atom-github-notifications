@@ -1,12 +1,4 @@
 {
-  "context-menu": {
-    "atom-text-editor": [
-      {
-        "label": "Toggle atom-github-notifications",
-        "command": "atom-github-notifications:toggle"
-      }
-    ]
-  },
   "menu": [
     {
       "label": "Packages",
@@ -15,8 +7,12 @@
           "label": "atom-github-notifications",
           "submenu": [
             {
-              "label": "Toggle",
-              "command": "atom-github-notifications:toggle"
+              "label": "Get all unread notifications",
+              "command": "atom-github-notifications:reset"
+            },
+            {
+              "label": "Check for new notifications",
+              "command": "atom-github-notifications:fetch"
             }
           ]
         }

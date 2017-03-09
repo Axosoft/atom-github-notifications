@@ -196,10 +196,10 @@ function activate(previousState) {
   });
 
   subscriptions.add(atom.commands.add('atom-workspace', {
-    'atom-github-notifications:fetch': function atomGithubNotificationsFetch() {
+    'atom-github-notifications:Check for new notifications': function atomGithubNotificationsCheckForNewNotifications() {
       return _this.fetch();
     },
-    'atom-github-notifications:reset': function atomGithubNotificationsReset() {
+    'atom-github-notifications:Get all unread notifications': function atomGithubNotificationsGetAllUnreadNotifications() {
       return _this.reset();
     }
   }));
@@ -318,4 +318,5 @@ function fetch() {
 
 function reset() {
   store.dispatch((0, _messages.ResetState)());
+  this.fetch();
 }
