@@ -1,7 +1,7 @@
 {
   "name": "atom-github-notifications",
   "main": "./lib/atom-github-notifications",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Display and dismiss your GitHub notifications from inside Atom",
   "keywords": [
     "atom",
