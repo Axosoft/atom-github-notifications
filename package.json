@@ -1,7 +1,7 @@
 {
   "name": "atom-github-notifications",
   "main": "./dist/atom-github-notifications",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "Display and dismiss your GitHub notifications from inside Atom",
   "keywords": [
     "atom",
@@ -30,6 +30,7 @@
   },
   "scripts": {
     "compile": "babel lib -d dist",
-    "prepublish": "npm run compile"
+    "publishMinor": "npm run compile && apm publish minor",
+    "publishPatch": "npm run compile && apm publish patch"
   }
 }
