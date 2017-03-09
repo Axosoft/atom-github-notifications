@@ -78,6 +78,19 @@ function getNotificationMessage(subjectType, subjectId, subjectUrl, repoFullName
   return avatarPart + ' **[' + repoFullName + ']**  \n' + message;
 }
 
+function getNotificationIcon(subjectType) {
+  switch (subjectType) {
+    case _constants.NotificationSubjectTypes.PULL_REQUEST:
+      return 'git-pull-request';
+    case _constants.NotificationSubjectTypes.COMMIT:
+      return 'git-commit';
+    case _constants.NotificationSubjectTypes.ISSUE:
+      return 'issue-opened';
+    default:
+      return null;
+  }
+}
+
 function getNotificationDescription(title, body) {
   // GitHub sends down body with `{text}\r\n{more text}\r\n{yet more}` but when rendered using
   // atom's markdown generator, plain newlines not preceded by spaces are swallowed up. To fix this,
@@ -128,7 +141,8 @@ function showNotification(_ref) {
 
   var notification = atom.notifications.addInfo(getNotificationMessage(subjectType, subjectId, subjectUrl, repoFullName, repoOwnerAvatar, userLogin), {
     dismissable: true,
-    description: getNotificationDescription(title, body)
+    description: getNotificationDescription(title, body),
+    icon: getNotificationIcon(subjectType)
   });
   notification.onDidDismiss(onDismiss);
 }
