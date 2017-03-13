@@ -1,6 +1,6 @@
 {
   "name": "atom-github-notifications",
-  "main": "./dist/atom-github-notifications",
+  "main": "./dist/index",
   "version": "0.1.7",
   "description": "Display and dismiss your GitHub notifications from inside Atom",
   "keywords": [
@@ -16,20 +16,25 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "github-xhr": "^0.3.2",
-    "ramda": "^0.23.0",
+    "ramda": "^0.21.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.23.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.2.1",
     "eslint": "^3.16.1",
     "eslint-config-airbnb-base": "^11.1.0",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-flowtype": "^2.30.3",
+    "eslint-plugin-import": "^2.2.0",
+    "flow-bin": "^0.41.0"
   },
   "scripts": {
     "compile": "babel lib -d dist",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "publishMinor": "npm run compile && apm publish minor",
     "publishPatch": "npm run compile && apm publish patch",
     "watch": "babel lib -d dist -w"
