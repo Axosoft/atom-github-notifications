@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var NOTIFICATIONS_ADDED = exports.NOTIFICATIONS_ADDED = 'NotificationsAdded';
+
 var NotificationsAdded = exports.NotificationsAdded = function NotificationsAdded(notifications, lastCheckTime) {
   return {
     type: NOTIFICATIONS_ADDED,

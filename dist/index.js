@@ -278,7 +278,6 @@ function fetch() {
         text: 'Open Settings',
         onDidClick: function onDidClick() {
           atom.workspace.open('atom://config/packages/atom-github-notifications');
-          warning.dismiss();
         }
       }, {
         text: 'All Done',

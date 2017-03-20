@@ -37,3 +37,5 @@ var SubjectTypeDisplayNames = exports.SubjectTypeDisplayNames = (_SubjectTypeDis
 var SubjectTypeUrlString = exports.SubjectTypeUrlString = (_SubjectTypeUrlString = {}, _defineProperty(_SubjectTypeUrlString, NotificationSubjectTypes.COMMIT, 'commit'), _defineProperty(_SubjectTypeUrlString, NotificationSubjectTypes.ISSUE, 'issues'), _defineProperty(_SubjectTypeUrlString, NotificationSubjectTypes.PULL_REQUEST, 'pull'), _SubjectTypeUrlString);
 
 var STORE_TIME_INTERVAL = exports.STORE_TIME_INTERVAL = 5000;
+
+var MAX_MESSAGE_LENGTH = exports.MAX_MESSAGE_LENGTH = 1000;
